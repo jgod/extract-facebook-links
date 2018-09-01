@@ -22,7 +22,6 @@ fb.login_and_visit(email: EMAIL, password: PASSWORD)
 
 TRIAL_COUNT.times do |time|
   fb.visit fb.current_url if time != 0
-  binding.pry
   fb.save_and_delete_links(time, TEMP_FILE_NAME, LINKS_FILE_NAME)
 end
 

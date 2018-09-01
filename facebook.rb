@@ -12,8 +12,8 @@ class Facebook
   def login_and_visit(email:, password:)
     Config.set_capybara
     visit "/"
-    fill_in "email", :with => ARGV[0]
-    fill_in "pass",  :with => ARGV[1]
+    fill_in "email", :with => email
+    fill_in "pass",  :with => password
     find("button", text:"ログイン").trigger("click")
     sleep 3
     find("button", text:"OK").trigger("click")
