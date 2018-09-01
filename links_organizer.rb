@@ -1,6 +1,6 @@
 module LinksOrganizer
   def unify_links(temp_file, links_file)
-    File.open(links_file, "w") do |new|
+    File.open(links_file, "a") do |new|
       old_file_lines = []
       File.open(temp_file, "r") do |old|
         old.each_line do |line|

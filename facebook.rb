@@ -9,7 +9,7 @@ class Facebook
   include Config
   include Capybara::DSL # 警告が出るが動く
 
-  def login_and_visit
+  def login_and_visit(email:, password:)
     Config.set_capybara
     visit "/"
     fill_in "email", :with => ARGV[0]
