@@ -23,7 +23,9 @@ class Facebook
 
   def visit_correct_url
     # たまに click のトリガー時に変なリンクを踏んでしまう
-    visit "/saved/?dashboard_section=LINKS" if current_url == "https://www.facebook.com/help/568137493302217"
+    visit "/saved/?dashboard_section=LINKS" unless
+      current_url == "https://www.facebook.com/saved/?dashboard_section=LINKS"
+
     sleep 10
     count_links
   end
@@ -34,8 +36,9 @@ class Facebook
 
   def delete_buttons
     delete_button_classes = 
-      all("a i").map {|i| i[:class].split(" ")[2]}
-        .reject {|item| item == "img" || item == "arrow" }
+      all("#globalContainer #content_container #saveContentFragment ._ikh div div div a i")
+        .map {|i| i[:class].split(" ")[-1] }
+        .reject {|item| item == "img" || item == "arrow" || item == "accessible_elem" }
         .uniq.compact
 
     delete_button_classes.each do |delete_button_class|
