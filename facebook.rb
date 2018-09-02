@@ -56,11 +56,15 @@ class Facebook
       return if @anchor_tags.count != 0
 
       puts ">>>>>> There is no saved links"
-      LinksOrganizer.unify_links(temp_file, links_file)
-      exit
+      begin
+        LinksOrganizer.unify_links(temp_file, links_file)
+      rescue
+        puts "No new link were found and then temp file has not been made"
+        exit
+      end
     end
 
-    File.open(temp_file, "a") do |f|
+    File.open(temp_file, "w") do |f|
       @anchor_tags.each do |anchor|
         text = anchor.text.gsub!(" ", "") || "タイトルなし"
         href = anchor[:href]
