@@ -17,6 +17,7 @@ class Facebook
     find("div#signup-button input").trigger("click")
     visit "/saved/?dashboard_section=LINKS"
     sleep 10
+    binding.pry
   end
 
   def visit_correct_url

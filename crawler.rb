@@ -9,7 +9,7 @@ require_relative "links_organizer"
 include LinksOrganizer
 
 facebook_login_info =
-  JSON.load(File.read("facebook_login_info.json"))
+  JSON.load(File.read("/home/ec2-user/extract-facebook-links/facebook_login_info.json"))
 
 EMAIL = facebook_login_info["email"]
 PASSWORD = facebook_login_info["password"]

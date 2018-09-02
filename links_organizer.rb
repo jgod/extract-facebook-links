@@ -10,7 +10,7 @@ module LinksOrganizer
       old_file_lines.uniq.each do |line|
         new.puts line
       end
-      File.delete(temp_file)
+      # File.delete(temp_file)
     end
   end
 end
