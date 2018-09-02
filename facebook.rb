@@ -15,8 +15,6 @@ class Facebook
     fill_in "email", :with => email
     fill_in "pass",  :with => password
     find("div#signup-button input").trigger("click")
-    sleep 3
-    find("button", text:"OK").trigger("click")
     visit "/saved/?dashboard_section=LINKS"
     sleep 10
   end
