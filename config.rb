@@ -11,6 +11,7 @@ module Config
     Capybara.configure do |config|
       config.run_server = false
       config.javascript_driver = :poltergeist
+      config.default_driver = :poltergeist
       config.app_host = "https://www.facebook.com/"
       config.default_max_wait_time = 120
       config.ignore_hidden_elements = false
