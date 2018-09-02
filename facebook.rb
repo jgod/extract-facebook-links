@@ -14,7 +14,7 @@ class Facebook
     visit "/"
     fill_in "email", :with => email
     fill_in "pass",  :with => password
-    find("div#signup-button input").trigger("click")
+    find("button", text:"ログイン").trigger("click")
     visit "/saved/?dashboard_section=LINKS"
     sleep 10
   end
