@@ -12,9 +12,12 @@ class Facebook
   def login_and_visit(email:, password:)
     Config.set_capybara
     visit "/"
+    sleep 3
     fill_in "email", :with => email
     fill_in "pass",  :with => password
     find("button", text:"ログイン").trigger("click")
+    find("button", text:"OK").trigger("click") if
+      /<button type=\"submit\" value=\"OK\"/.match(body)
     visit "/saved/?dashboard_section=LINKS"
     sleep 10
   end
