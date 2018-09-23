@@ -17,12 +17,13 @@ TEMP_FILE_NAME = "temp_links.txt"
 LINKS_FILE_NAME = "links.txt"
 TRIAL_COUNT = 50
 
-fb = Facebook.new
-fb.login_and_visit(email: EMAIL, password: PASSWORD)
+# fb = Facebook.new
+# fb.login_and_visit(email: EMAIL, password: PASSWORD)
 
-TRIAL_COUNT.times do |time|
-  fb.visit fb.current_url if time != 0
-  fb.save_and_delete_links(time, TEMP_FILE_NAME, LINKS_FILE_NAME)
-end
+# TRIAL_COUNT.times do |time|
+#   fb.visit fb.current_url if time != 0
+#   fb.save_and_delete_links(time, TEMP_FILE_NAME, LINKS_FILE_NAME)
+# end
 
-LinksOrganizer.unify_links(TEMP_FILE_NAME, LINKS_FILE_NAME)
+# LinksOrganizer.add_links(TEMP_FILE_NAME, LINKS_FILE_NAME)
+LinksOrganizer.unify_links(LINKS_FILE_NAME)

@@ -60,7 +60,7 @@ class Facebook
 
       puts ">>>>>> There is no saved links"
       begin
-        LinksOrganizer.unify_links(temp_file, links_file)
+        LinksOrganizer.add_links(temp_file, links_file)
       rescue
         puts "No new link were found and then temp file has not been made"
         exit
